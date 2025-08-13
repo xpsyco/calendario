@@ -1,0 +1,349 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #fce4ec 0%, #e0f7fa 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin: 0;
+    color: #4a4a4a;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.calendar-wrapper {
+    max-width: 400px;
+    width: 95%;
+    background-color: #ffffff;
+    border-radius: 25px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px 0;
+    background-color: #fff0f5;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+.calendar-header h1 {
+    color: #ff4081;
+    font-size: 1.8em;
+    margin: 0 10px;
+    font-weight: 900;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.nav-button {
+    background-color: #ff80ab;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.2em;
+    color: white;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease-in-out;
+    margin: 0 10px;
+}
+
+.nav-button:hover {
+    background-color: #e91e63;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.nav-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.arrow {
+    font-size: 1em;
+}
+
+#selected-day-info {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #e91e63;
+    min-height: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 10px;
+    background-color: #fffde7;
+    width: 100%;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+    margin-bottom: 15px;
+}
+
+.initial-message {
+    font-size: 0.9em;
+    color: #6a1b9a;
+    animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1.03);
+        opacity: 0.9;
+    }
+}
+
+.emoji-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+    font-size: 0.85em;
+    color: #666;
+    width: 100%;
+    padding: 10px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.emoji-item {
+    padding: 6px 12px;
+    border-radius: 12px;
+    background-color: #fce4ec;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.calendar-container {
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    margin-top: 20px;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    gap: 7px;
+}
+
+.day-name {
+    font-weight: bold;
+    color: #e91e63;
+    padding: 10px 0;
+    font-size: 0.9em;
+}
+
+.day-cell {
+    position: relative;
+    padding: 10px 0;
+    border-radius: 12px;
+    font-size: 1.1em;
+    cursor: pointer;
+    background-color: #ffebee;
+    transition: all 0.2s ease-in-out;
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.day-cell.empty {
+    background-color: transparent;
+    box-shadow: none;
+    cursor: default;
+}
+
+.day-cell:not(.empty):hover {
+    background-color: #f8bbd0;
+    transform: scale(1.03);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.selected-day {
+    background-color: #f06292;
+    color: #ffffff;
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    border: 2px solid #ffab40;
+}
+
+.today {
+    background-color: #ffcc80;
+    color: #4a4a4a;
+    font-weight: bold;
+    position: relative;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid #ffa000;
+}
+
+.day-number {
+    font-size: 1.4em;
+    font-weight: 900;
+    margin-bottom: 3px;
+}
+
+.day-emojis {
+    display: flex;
+    gap: 3px;
+    font-size: 0.8em;
+    margin-top: 2px;
+}
+
+.girl-emoji {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.8em;
+    animation: moveEmoji 1.5s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+
+@keyframes moveEmoji {
+    0% {
+        transform: translate(-50%, 0);
+    }
+
+    50% {
+        transform: translate(-50%, -8px);
+    }
+
+    100% {
+        transform: translate(-50%, 0);
+    }
+}
+
+
+@keyframes popEffect {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.day-cell.pop {
+    animation: popEffect 0.3s ease-out;
+}
+
+
+.install-container {
+    margin-top: 25px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.install-container.hidden {
+    display: none;
+}
+
+.install-button {
+    background: linear-gradient(45deg, #6a1b9a, #8e24aa);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 15px 30px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    outline: none;
+}
+
+.install-button:hover {
+    background: linear-gradient(45deg, #8e24aa, #6a1b9a);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.install-button:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+@media (max-width: 400px) {
+    .calendar-wrapper {
+        padding: 15px;
+    }
+
+    .calendar-header h1 {
+        font-size: 1.6em;
+    }
+
+    .nav-button {
+        width: 40px;
+        height: 40px;
+        font-size: 1em;
+    }
+
+    .day-cell {
+        font-size: 0.9em;
+        height: 60px;
+    }
+
+    .day-number {
+        font-size: 1.2em;
+    }
+
+    .girl-emoji {
+        font-size: 1.5em;
+        top: -15px;
+    }
+
+    .emoji-info {
+        gap: 8px;
+        font-size: 0.8em;
+    }
+
+    .emoji-item {
+        padding: 4px 8px;
+        font-size: 0.75em;
+    }
+
+    .install-button {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+}

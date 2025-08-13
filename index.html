@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendário Da Lana</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="calendar-wrapper">
+        <div class="calendar-header">
+            <button id="prev-month" class="nav-button">
+                <span class="arrow">◀</span>
+            </button>
+            <h1 id="current-month-year"></h1>
+            <button id="next-month" class="nav-button">
+                <span class="arrow">▶</span>
+            </button>
+        </div>
+        <div id="selected-day-info">
+            <span class="initial-message">Toque em um dia para saber mais! ✨</span>
+        </div>
+        <div class="emoji-info">
+            <span class="emoji-item">🏫 Escola</span>
+            <span class="emoji-item">🥋 Judô</span>
+            <span class="emoji-item">🧸 Fim de Semana</span>
+        </div>
+
+        <div class="calendar-container">
+            <div class="calendar-grid day-names-grid">
+                <div class="day-name">Dom</div>
+                <div class="day-name">Seg</div>
+                <div class="day-name">Ter</div>
+                <div class="day-name">Qua</div>
+                <div class="day-name">Qui</div>
+                <div class="day-name">Sex</div>
+                <div class="day-name">Sáb</div>
+            </div>
+            <div id="calendar-body" class="calendar-grid">
+            </div>
+        </div>
+
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
